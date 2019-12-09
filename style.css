@@ -10,6 +10,30 @@ body {
   background-color: #f2f2f2;
 }
 
+/*     LOADING          */
+.loadingContainer {
+  /* pointer-events: none; */
+  /* display: none; */
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  opacity: 0;
+  background-color: white;
+  z-index: 10;
+  transition: opacity 200ms ease-out, visibility 0ms linear 200ms,
+    bottom 0ms ease-out 200ms;
+}
+
+.isLoading .loadingContainer {
+  /* display: block; */
+  visibility: visible;
+  bottom: 0;
+  opacity: 1;
+}
+
 /*    NAVBAR   */
 .hamburger {
   position: absolute;
@@ -94,6 +118,7 @@ nav {
   clip-path: circle(1500px at 10% -15%);
   -webkit-clip-path: circle(1500px at 10% -15%);
   pointer-events: all;
+  /* position: fixed; */
 }
 
 .op {
