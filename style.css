@@ -12,8 +12,6 @@ body {
 
 /*     LOADING          */
 .loadingContainer {
-  /* pointer-events: none; */
-  /* display: none; */
   visibility: hidden;
   position: fixed;
   top: 0;
@@ -32,7 +30,6 @@ body {
 }
 
 .isLoading .loadingContainer {
-  /* display: block; */
   visibility: visible;
   bottom: 0;
   opacity: 1;
@@ -84,8 +81,6 @@ nav {
     #f2f2f2
   );
   position: relative;
-  /* background-color: #987fd1; */
-  /* background-color: #a16ad9; */
 }
 
 /*  Les liens  */
@@ -133,8 +128,6 @@ nav {
 .nav-links li a:before {
   content: attr(data-text);
   position: absolute;
-  /* top: 0;
-  left: 0; */
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
@@ -152,7 +145,6 @@ nav {
   clip-path: circle(1500px at 10% -15%);
   -webkit-clip-path: circle(1500px at 10% -15%);
   pointer-events: all;
-  /* position: fixed; */
 }
 
 .op {
@@ -202,22 +194,7 @@ li.fade {
   font-weight: bold;
 }
 
-/*    SVG    */
-/* .homePage {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 91vh;
-  background-color: #f2f2f2;
-} */
-
 .containerSVG {
-  /* display: flex;
-  justify-content: flex-end;
-  align-items: flex-end; */
-  /* margin-top: 20px;
-  margin-right: 10px; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -236,9 +213,6 @@ li.fade {
 #left-wheel {
   -webkit-animation: wheel 2s infinite linear;
   animation: wheel 2s infinite linear;
-  /* tourne par rapport au centre */
-  /* Définie la boîte à laquelle les propriétés transform et transform-origin font références */
-  /* La boîte liée à l'objet est utilisée comme boîte de référence. */
   -webkit-transform-origin: center;
   -ms-transform-origin: center;
   transform-origin: center;
@@ -257,9 +231,6 @@ li.fade {
 #hat {
   -webkit-animation: hat 1s ease-in-out infinite alternate;
   animation: hat 1s ease-in-out infinite alternate;
-  /* tourne par rapport au centre */
-  /* Définie la boîte à laquelle les propriétés transform et transform-origin font références */
-  /* La boîte liée à l'objet est utilisée comme boîte de référence. */
   -webkit-transform-origin: center;
   -ms-transform-origin: center;
   transform-origin: center;
@@ -441,7 +412,6 @@ li.fade {
 /*                  BIKE                   */
 
 #bodyBike {
-  /* color: white; */
   text-align: center;
 
   font-weight: bold;
@@ -492,11 +462,10 @@ section {
   position: relative;
   background-color: #b1aef2;
 
-  /* Le coin en haut à gauche, puis en haut à droite, puis en bas à droite puis en bas à gauche */
   -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
-  /* Calc : pour faire un calcul */
-  margin-bottom: -10vw; /* Permet de remplir l'espace découper avec la section du bas */
+
+  margin-bottom: -10vw;
   z-index: 1;
 }
 .sectionThree {
