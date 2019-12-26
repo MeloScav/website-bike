@@ -20,11 +20,15 @@ body {
   right: 0;
   bottom: 100%;
   left: 0;
-  opacity: 0;
   background-color: white;
-  z-index: 10;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-out, visibility 0ms linear 200ms,
+    bottom 0ms ease-out 200ms;
+  -o-transition: opacity 200ms ease-out, visibility 0ms linear 200ms,
+    bottom 0ms ease-out 200ms;
   transition: opacity 200ms ease-out, visibility 0ms linear 200ms,
     bottom 0ms ease-out 200ms;
+  z-index: 10;
 }
 
 .isLoading .loadingContainer {
@@ -40,6 +44,8 @@ body {
   cursor: pointer;
   left: 4%;
   top: 50%;
+  -webkit-transform: translate(-5%, -50%);
+  -ms-transform: translate(-5%, -50%);
   transform: translate(-5%, -50%);
   z-index: 5;
 }
@@ -51,6 +57,24 @@ body {
 }
 nav {
   height: 9vh;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#a16ad9),
+    color-stop(#a16ad9),
+    color-stop(#b598d3),
+    color-stop(#b598d3),
+    to(#f2f2f2)
+  );
+  background: -o-linear-gradient(
+    left,
+    #a16ad9,
+    #a16ad9,
+    #b598d3,
+    #b598d3,
+    #f2f2f2
+  );
   background: linear-gradient(
     to right,
     #a16ad9,
@@ -67,18 +91,21 @@ nav {
 /*  Les liens  */
 .nav-links {
   display: flex;
-  list-style: none;
-
-  height: 100%;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 
   position: fixed;
-  background-color: #a16ad9;
+  list-style: none;
+
   width: 100%;
-  flex-direction: column;
+  height: 100%;
+  background-color: #a16ad9;
+
   clip-path: circle(100px at 10% -15%);
   -webkit-clip-path: circle(100px at 10% -15%);
+  -webkit-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
   transition: all 1s ease-out;
   pointer-events: none;
   z-index: 4;
@@ -92,12 +119,15 @@ nav {
 
   text-decoration: none;
   font-size: 5em;
-  -webkit-text-stroke: 1px #dddcdc;
   font-weight: 600;
+  -webkit-text-stroke: 1px #dddcdc;
 }
+
 .nav-links li a:hover {
   color: #dddcdc;
   -webkit-text-stroke: 0.5px #a16ad9;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
   transition: 0.5s;
 }
 .nav-links li a:before {
@@ -105,13 +135,17 @@ nav {
   position: absolute;
   /* top: 0;
   left: 0; */
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
   transition: 0.5s;
 }
 .nav-links li a:hover:before {
   color: #f22256;
-  z-index: 3;
   -webkit-text-stroke: 0.5px #f22256;
+  -webkit-transform: translate(6px, -6px);
+  -ms-transform: translate(6px, -6px);
   transform: translate(6px, -6px);
+  z-index: 3;
 }
 
 .nav-links.open {
@@ -126,15 +160,23 @@ nav {
 }
 
 .nav-links li:nth-child(1) {
+  -webkit-transition: all 1s ease 0.2s;
+  -o-transition: all 1s ease 0.2s;
   transition: all 1s ease 0.2s;
 }
 .nav-links li:nth-child(2) {
+  -webkit-transition: all 1s ease 0.4s;
+  -o-transition: all 1s ease 0.4s;
   transition: all 1s ease 0.4s;
 }
 .nav-links li:nth-child(3) {
+  -webkit-transition: all 1s ease 0.6s;
+  -o-transition: all 1s ease 0.6s;
   transition: all 1s ease 0.6s;
 }
 .nav-links li:nth-child(4) {
+  -webkit-transition: all 1s ease 0.8s;
+  -o-transition: all 1s ease 0.8s;
   transition: all 1s ease 0.8s;
 }
 
@@ -192,79 +234,77 @@ li.fade {
 
 #right-wheel,
 #left-wheel {
+  -webkit-animation: wheel 2s infinite linear;
   animation: wheel 2s infinite linear;
-  transform-origin: center; /* tourne par rapport au centre */
+  /* tourne par rapport au centre */
   /* Définie la boîte à laquelle les propriétés transform et transform-origin font références */
   /* La boîte liée à l'objet est utilisée comme boîte de référence. */
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+
   transform-box: fill-box;
 }
 
 #man-bike {
+  -webkit-animation: bike 1s ease-in-out infinite alternate;
   animation: bike 1s ease-in-out infinite alternate;
+  -webkit-transform-origin: bottom;
+  -ms-transform-origin: bottom;
   transform-origin: bottom;
 }
 
 #hat {
+  -webkit-animation: hat 1s ease-in-out infinite alternate;
   animation: hat 1s ease-in-out infinite alternate;
-  transform-origin: center; /* tourne par rapport au centre */
+  /* tourne par rapport au centre */
   /* Définie la boîte à laquelle les propriétés transform et transform-origin font références */
   /* La boîte liée à l'objet est utilisée comme boîte de référence. */
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+
   transform-box: fill-box;
 }
 
 @keyframes wheel {
   from {
+    -webkit-transform: rotateZ(0deg);
+    -ms-transform: rotate(0deg);
     transform: rotateZ(0deg);
   }
   to {
+    -webkit-transform: rotateZ(360deg);
+    -ms-transform: rotate(360deg);
     transform: rotateZ(360deg);
   }
 }
 
 @keyframes bike {
   from {
+    -webkit-transform: rotateX(0deg);
     transform: rotateX(0deg);
   }
   to {
+    -webkit-transform: rotateX(20deg);
     transform: rotateX(20deg);
   }
 }
 
 @keyframes hat {
   from {
+    -webkit-transform: translateY(0%) rotateZ(0deg);
+    -ms-transform: translateY(0%) rotate(0deg);
     transform: translateY(0%) rotateZ(0deg);
   }
   to {
+    -webkit-transform: translateY(45%) rotateZ(5deg);
+    -ms-transform: translateY(45%) rotate(5deg);
     transform: translateY(45%) rotateZ(5deg);
   }
 }
 
 /*              RESPONSIVE               */
-@media screen and (min-width: 2500px) {
-  .nav-links.open {
-    clip-path: circle(2560px at 40% -15%);
-    -webkit-clip-path: circle(2560px at 40% -15%);
-    pointer-events: all;
-  }
-  .nav-links li a {
-    font-size: 45px;
-  }
-
-  .nav-links {
-    align-items: flex-start;
-    padding-left: 10%;
-  }
-  h1 {
-    font-size: 55px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .nav-links.open {
-    clip-path: circle(1700px at 10% -15%);
-    -webkit-clip-path: circle(1700px at 10% -15%);
-    pointer-events: all;
-  }
-}
 @media screen and (max-width: 768px) {
   .line {
     width: 30px;
@@ -281,6 +321,8 @@ li.fade {
     cursor: pointer;
     left: 4%;
     top: 50%;
+    -webkit-transform: translate(-5%, -50%);
+    -ms-transform: translate(-5%, -50%);
     transform: translate(-5%, -50%);
     z-index: 5;
   }
@@ -289,10 +331,12 @@ li.fade {
     position: fixed;
     background-color: #a16ad9;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     flex-direction: column;
     clip-path: circle(100px at 10% -15%);
     -webkit-clip-path: circle(100px at 10% -15%);
+    -webkit-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
     transition: all 1s ease-out;
     pointer-events: none;
   }
@@ -309,15 +353,23 @@ li.fade {
   }
 
   .nav-links li:nth-child(1) {
+    -webkit-transition: all 0.5s ease 0.2s;
+    -o-transition: all 0.5s ease 0.2s;
     transition: all 0.5s ease 0.2s;
   }
   .nav-links li:nth-child(2) {
+    -webkit-transition: all 0.5s ease 0.4s;
+    -o-transition: all 0.5s ease 0.4s;
     transition: all 0.5s ease 0.4s;
   }
   .nav-links li:nth-child(3) {
+    -webkit-transition: all 0.5s ease 0.6s;
+    -o-transition: all 0.5s ease 0.6s;
     transition: all 0.5s ease 0.6s;
   }
   .nav-links li:nth-child(4) {
+    -webkit-transition: all 0.5s ease 0.8s;
+    -o-transition: all 0.5s ease 0.8s;
     transition: all 0.5s ease 0.8s;
   }
 
@@ -326,17 +378,78 @@ li.fade {
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .hamburger {
+    display: none;
+  }
+  .navContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav-links {
+    height: 59px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    position: relative;
+    list-style: none;
+
+    background-color: transparent;
+
+    clip-path: none;
+    -webkit-clip-path: none;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+    pointer-events: all;
+    z-index: 4;
+  }
+  .nav-links li {
+    opacity: 1;
+  }
+  .nav-links li a {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: 300;
+    -webkit-text-stroke: 1px transparent;
+  }
+
+  .nav-links li a:hover {
+    color: #f6f0f7;
+    -webkit-text-stroke: 0.5px transparent;
+  }
+  .nav-links li a:before {
+    content: "";
+    position: relative;
+  }
+  .nav-links li a:hover:before {
+    color: transparent;
+    -webkit-text-stroke: 0.5px transparent;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    z-index: 0;
+  }
+}
+
 /*                  BIKE                   */
 
 #bodyBike {
   /* color: white; */
   text-align: center;
-  font-size: 1.2em;
+
   font-weight: bold;
 }
 
 section {
   padding: 30vh 0; /* haut et bas */
+  font-size: 1.2em;
 }
 
 /* Première section */
@@ -363,10 +476,14 @@ section {
 }
 .sectionOne::before {
   right: 50%;
+  -webkit-transform: skew(0, 20deg);
+  -ms-transform: skew(0, 20deg);
   transform: skew(0, 20deg);
 }
 .sectionOne::after {
   left: 50%;
+  -webkit-transform: skew(0, -20deg);
+  -ms-transform: skew(0, -20deg);
   transform: skew(0, -20deg);
 }
 
@@ -374,11 +491,13 @@ section {
 .sectionTwo {
   position: relative;
   background-color: #b1aef2;
-  z-index: 1;
+
   /* Le coin en haut à gauche, puis en haut à droite, puis en bas à droite puis en bas à gauche */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10vw), 0 100%);
   /* Calc : pour faire un calcul */
   margin-bottom: -10vw; /* Permet de remplir l'espace découper avec la section du bas */
+  z-index: 1;
 }
 .sectionThree {
   background-color: #a16ad9;
